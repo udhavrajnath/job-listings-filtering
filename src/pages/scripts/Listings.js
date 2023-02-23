@@ -39,7 +39,10 @@ function Listings() {
   return (
     <div className='container-fluid'>
         <div className='Listings'>
-            <div className='topbarImg'><ImageBootstrap id='image' fluid='true' src={testImg}/><div>{InputTag}</div></div>
+            <div className='topbarImg'>
+                <ImageBootstrap id='image' fluid='true' src={testImg}/>
+                <div>{InputTag}</div>
+            </div>
             <div className='jobslist'>
                 <div className='jobsRendered'>{jobs}</div>
             </div>
