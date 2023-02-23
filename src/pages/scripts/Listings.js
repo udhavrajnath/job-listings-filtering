@@ -8,8 +8,21 @@ import data from '../../Data/data.json'
 function Listings() {
     let jobs=data.map(i=>
         <div key={i.id} className='jobsContainer'>
-            {i.company}<br/>
-            {i.tools.map(j=><div className='jobsoptions'><button value={j} onClick={(j)=>UpdateSelectionList(j.target.value)}>{j}</button></div>)}
+            <div className='companyLogo'><img src={i.logo} alt='company logo'/></div>
+            <div className='jobDesc'>
+                <div className='jobtitle'>
+                    <div>{i.company}</div>
+                    {(i.new==true)&&<div>NEW!</div>}
+                    {(i.featured==true)&&<div>FEATURED</div>}
+                </div>
+                <div className='jobPosition'>{i.position}</div>
+                <div className='jobPostedDate'>
+                    <div>{i.postedAt} </div>
+                    <div><li>{i.contract}</li></div>
+                    <div><li>{i.location}</li></div>
+                </div>
+            </div>
+            <div className='jobCriteria'>{containAll(i).map(k=><button value={k} onClick={(e)=>UpdateSelectionList(e.target.value)}>{k}</button>)}</div>
         </div>
     )
     
@@ -29,6 +42,23 @@ function Listings() {
         tempArray.splice(optSlected.indexOf(e.target.value),1)
         setOptSelected(tempArray)
     }
+    //function containAll withh combine each criteria from each job selection into an array--tools languages roles level
+    function containAll(objectParam){
+       
+        let combinedAr=[]
+        combinedAr.push(objectParam.role)
+        combinedAr.push(objectParam.level)
+        
+        for(var j=0;j<objectParam.tools.length;j++){
+            combinedAr.push(objectParam.tools[j])
+        } 
+        
+        for(var l=0;l<objectParam.languages.length;l++){
+            combinedAr.push(objectParam.languages[l])
+        }
+        console.log(combinedAr)
+        return combinedAr
+        }
 
     let InputTag=optSlected.map(i=>
         <div>
