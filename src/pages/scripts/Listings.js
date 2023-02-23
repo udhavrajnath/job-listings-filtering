@@ -1,6 +1,6 @@
 import {React,useState} from 'react'
 import '../styles/Listings.css'
-import testImg from '../../images/bg-header-desktop.svg'
+import testImg from './images/bg-header-desktop.svg'
 import ImageBootstrap from 'react-bootstrap/Image'
 import data from '../../Data/data.json'
 
