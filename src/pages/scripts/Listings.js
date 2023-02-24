@@ -11,9 +11,9 @@ function Listings() {
             <div className='companyLogo'><img src={i.logo} alt='company logo'/></div>
             <div className='jobDesc'>
                 <div className='jobtitle'>
-                    <div>{i.company}</div>
-                    {(i.new==true)&&<div>NEW!</div>}
-                    {(i.featured==true)&&<div>FEATURED</div>}
+                    <div id='compName'>{i.company}</div>
+                    {(i.new==true)&&<div className='New'>NEW!</div>}
+                    {(i.featured==true)&&<div className='featured'>FEATURED</div>}
                 </div>
                 <div className='jobPosition'>{i.position}</div>
                 <div className='jobPostedDate'>
@@ -61,8 +61,8 @@ function Listings() {
         }
 
     let InputTag=optSlected.map(i=>
-        <div>
-            {i}
+        <div className='IndivSelection'>
+            <div className='option'>{i}</div>
             <button value={i} onClick={(e)=>RemoveFromSelection(e)}>X</button>
         </div>
         )
@@ -71,8 +71,8 @@ function Listings() {
         <div className='Listings'>
             <div className='topbarImg'>
                 <ImageBootstrap id='image' fluid='true' src={testImg}/>
-                <div>{InputTag}</div>
             </div>
+            <div className='inputSection'><div className={(InputTag.length!=0)?'InputsectionContainer':''}>{InputTag}</div></div>
             <div className='jobslist'>
                 <div className='jobsRendered'>{jobs}</div>
             </div>
