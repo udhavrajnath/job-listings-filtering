@@ -26,7 +26,7 @@ function Listings() {
                     {(i.new==true)&&<div className='New'>NEW!</div>}
                     {(i.featured==true)&&<div className='featured'>FEATURED</div>}
                 </div>
-                <div className='jobPosition'>{i.position}</div>
+                <div className='jobPosition'><p>{i.position}</p></div>
                 <div className='jobPostedDate'>
                     <div>{i.postedAt} </div>
                     <div><li>{i.contract}</li></div>
@@ -92,7 +92,7 @@ function Listings() {
                     {(i.new==true)&&<div className='New'>NEW!</div>}
                     {(i.featured==true)&&<div className='featured'>FEATURED</div>}
                 </div>
-                <div className='jobPosition'>{i.position}</div>
+                <div className='jobPosition'><p>{i.position}</p></div>
                 <div className='jobPostedDate'>
                     <div>{i.postedAt} </div>
                     <div><li>{i.contract}</li></div>
@@ -102,13 +102,21 @@ function Listings() {
             <div className='jobCriteria'>{containAll(i).map(k=><button value={k} onClick={(e)=>UpdateSelectionList(e.target.value)}>{k}</button>)}</div>
         </div>
     )
+    function ClearArray(){
+        setOptSelected([])
+    }
   return (
     <div className='container-fluid'>
         <div className='Listings'>
             <div className='topbarImg'>
                 <ImageBootstrap id='image' fluid='true' src={testImg}/>
             </div>
-            <div className='inputSection'><div className={(InputTag.length!=0)?'InputsectionContainer':''}>{InputTag}</div></div>
+            <div className='inputSection'>
+                <div className={(InputTag.length!=0)?'InputsectionContainer':''}>
+                    <div className='SelectionSection'>{InputTag}</div>
+                    <div className='clearSearch'>{(InputTag.length!=0)?<p onClick={()=>ClearArray()}>Clear</p>:''}</div>
+                </div>
+            </div>
             <div className='jobslist'>
                 <div className='jobsRendered'>{(optSlected.length==0)?jobs:RenderJobsFiltered}</div>
             </div>
