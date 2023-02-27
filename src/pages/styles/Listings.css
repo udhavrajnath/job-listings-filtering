@@ -141,7 +141,7 @@
 .jobPostedDate{
     background-color: transparent;
     display: grid;
-    grid-template-columns: 15% 25% 30%;
+    grid-template-columns: 18% 25% 30%;
     align-items: center;
     text-align: left;
     color: hsl(180, 8%, 52%);
