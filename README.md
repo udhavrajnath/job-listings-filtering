@@ -50,9 +50,6 @@ Used this project as a revision on my javascript data structures; storing and re
 
 To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 
 ```js
 function UpdateSelectionList(val){
